@@ -64,7 +64,7 @@ class HomeContent extends StatelessWidget {
           const HeightSpace(space: 0.04),
 
           // دائرة الطاقة
-          EnergyUsageCircle(percent: prov.usagePercent),
+          EnergyUsageCircle(),
 
           const HeightSpace(space: 0.04),
 

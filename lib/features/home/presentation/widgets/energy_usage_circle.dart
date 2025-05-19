@@ -1,58 +1,68 @@
 import 'package:flutter/material.dart';
+import 'package:percent_indicator/circular_percent_indicator.dart';
+
+import 'package:provider/provider.dart';
 
 import '../../../../core/constants/app_colors.dart';
+import '../../logic/home_provider.dart';
 
 
 class EnergyUsageCircle extends StatelessWidget {
-  final double percent;
-  const EnergyUsageCircle({Key? key, required this.percent}) : super(key: key);
+  const EnergyUsageCircle({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final double size = MediaQuery.of(context).size.width * 0.6;
-    return SizedBox(
-      width: size,
-      height: size,
-      child: Stack(
-        alignment: Alignment.center,
-        children: [
-          // الخلفية الرمادية
-          CircularProgressIndicator(
-            value: 1.0,
-            strokeWidth: 12,
-            valueColor: AlwaysStoppedAnimation(AppColors.white.withOpacity(0.2)),
+    final size = MediaQuery.of(context).size;
+    final usage = context.watch<HomeProvider>().usagePercent;
+
+    return Stack(
+      alignment: Alignment.center,
+      children: [
+        CircularPercentIndicator(
+          radius: size.width * 0.28,
+          lineWidth: size.width * 0.04,
+          percent: usage,
+          circularStrokeCap: CircularStrokeCap.round,
+          backgroundColor: Colors.grey.shade800,
+          linearGradient: const LinearGradient(
+            colors: [Color(0xFFFFC107), Color(0xFFFF9800)],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
           ),
-          // الجزء الأبيض
-          CircularProgressIndicator(
-            value: 1.0 - percent,
-            strokeWidth: 12,
-            valueColor: AlwaysStoppedAnimation(AppColors.white.withOpacity(0.5)),
-          ),
-          // الجزء الأصفر
-          CircularProgressIndicator(
-            value: percent,
-            strokeWidth: 12,
-            valueColor: AlwaysStoppedAnimation(AppColors.yellow),
-          ),
-          // النص والرمز
-          Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Text('${(percent * 100).toInt()}%',
-                  style: const TextStyle(color: AppColors.white, fontSize: 32, fontWeight: FontWeight.bold)),
-              const SizedBox(height: 8),
-              Container(
-                decoration: const BoxDecoration(
-                  color: AppColors.white,
-                  shape: BoxShape.circle,
-                ),
-                padding: const EdgeInsets.all(8),
-                child: const Icon(Icons.flash_on, color: AppColors.yellow),
+        ),
+        Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              "Energy Usages",
+              style: TextStyle(
+                fontSize: size.width * 0.045,
+                color: Colors.white,
               ),
-            ],
+            ),
+            Text(
+              "${(usage * 100).toInt()}%",
+              style: TextStyle(
+                fontSize: size.width * 0.1,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
+            ),
+          ],
+        ),
+        Positioned(
+          bottom: 10,
+          child: CircleAvatar(
+            backgroundColor: Colors.white,
+            radius: size.width * 0.07,
+            child: Icon(
+              Icons.flash_on,
+              color: AppColors.yellow,
+              size: size.width * 0.07,
+            ),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
