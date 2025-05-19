@@ -10,5 +10,9 @@ class AppImages {
   static const String friends2 = 'assets/images/home/friends2.png';
   static const String friends3 = 'assets/images/home/friends3.png';
 
+  static const String border1x = 'assets/images/home/border1x.png';
+  static const String border1_5x = 'assets/images/home/border1.5x.png';
+  static const String border2x = 'assets/images/home/border2x.png';
+
 
 }
