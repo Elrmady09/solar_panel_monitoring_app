@@ -1,5 +1,7 @@
 
 import 'package:flutter/material.dart';
+import 'package:solar_panel_monitoring_app/core/utils/General%20Text.dart';
+import 'package:solar_panel_monitoring_app/features/onboard/widgets/yellow_shadow.dart';
 
 import '../../../core/constants/app_colors.dart';
 
@@ -9,26 +11,26 @@ class TitleWithReflectionSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: size.width * 0.05),
+    return SizedBox(
+      width: size.width,
+      height: size.height * 0.265,
       child: Stack(
         children: [
           // نص عريض وشفّاف بالخلف
           Opacity(
-            opacity: 0.1,
-            child: Text(
-              'SOLAR\nMONITORING',
-              style: TextStyle(
-                fontSize: 50,
-                fontWeight: FontWeight.bold,
-                color: AppColors.white,
-                height: 1.0,
-              ),
+            opacity: 0.05,
+            child: GeneralText(
+              padding: EdgeInsets.symmetric(horizontal: size.width * 0.05),
+              text: 'Solar\nMonitoring',
+              sizetext:size.width * 0.18 ,
+              fontWeight: FontWeight.bold,
+              color: AppColors.white,
+              height: 1.0,
             ),
           ),
           // النص الفعلي
           Padding(
-            padding: const EdgeInsets.only(top: 8, left: 4),
+            padding:EdgeInsets.only(top: size.height * 0.035, left: size.width * 0.05,right: size.width * 0.05),
             child: RichText(
               text: TextSpan(
                 children: [
@@ -41,7 +43,7 @@ class TitleWithReflectionSection extends StatelessWidget {
                     ),
                   ),
                   TextSpan(
-                    text: 'reduce climate\n change ⚡',
+                    text: 'reduce climate\nchange ⚡',
                     style: TextStyle(
                       color: AppColors.white,
                       fontSize: size.width * 0.11,
@@ -51,6 +53,14 @@ class TitleWithReflectionSection extends StatelessWidget {
                 ],
               ),
             ),
+          ),
+          Positioned(
+            right: size.width * 0.1,
+              top: size.height * 0.08,
+              child: YellowShadow(
+                width: size.width * 0.1,
+                heigh: size.height * 0.1,
+              ),
           ),
         ],
       ),

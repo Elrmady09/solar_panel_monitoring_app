@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:solar_panel_monitoring_app/core/constants/app_images.dart';
+import 'package:solar_panel_monitoring_app/core/utils/General%20Text.dart';
 import 'package:solar_panel_monitoring_app/features/onboard/widgets/title_with_reflection_section.dart';
 import 'package:solar_panel_monitoring_app/features/onboard/widgets/top_indicator_section.dart';
 
@@ -23,7 +24,6 @@ class OnboardContent extends StatelessWidget {
         const HeightSpace(space: 0.02),
         // الصورة مع الظلال الصفراء
         ImageSection(),
-        const HeightSpace(space: 0.025),
         // العنوان مع "انعكاس" خلفي
         TitleWithReflectionSection(),
 
@@ -48,9 +48,13 @@ class OnboardContent extends StatelessWidget {
             width: size.width * 0.8,
             child: ElevatedButton(
               onPressed: () {
-                // TODO: الانتقال للصفحة التالية
+
               },
-              child: const Text('Get Started'),
+              child: GeneralText(
+                  text: 'Get Started',
+                sizetext: size.width * 0.04,
+                color: Colors.black,
+              ),
             ),
           ),
         ),
