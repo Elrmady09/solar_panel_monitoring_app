@@ -6,6 +6,7 @@ import 'package:solar_panel_monitoring_app/features/onboard/widgets/top_indicato
 
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/utils/space.dart';
+import '../../home/presentation/pages/home_page.dart';
 import 'image_section.dart';
 
 
@@ -48,7 +49,10 @@ class OnboardContent extends StatelessWidget {
             width: size.width * 0.8,
             child: ElevatedButton(
               onPressed: () {
-
+                Navigator.pushReplacement(
+                  context,
+                  MaterialPageRoute(builder: (context) => const HomePage()),
+                );
               },
               child: GeneralText(
                   text: 'Get Started',

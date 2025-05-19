@@ -1,10 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import 'core/theme/app_theme.dart';
+import 'features/home/logic/home_provider.dart';
 import 'features/onboard/presentation/pages/onboard_page.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => HomeProvider()),
+
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
