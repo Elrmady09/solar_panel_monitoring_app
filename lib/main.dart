@@ -4,12 +4,14 @@ import 'package:provider/provider.dart';
 import 'core/theme/app_theme.dart';
 import 'features/home/logic/home_provider.dart';
 import 'features/onboard/presentation/pages/onboard_page.dart';
+import 'features/statistics/logic/statistics_provider.dart';
 
 void main() {
   runApp(
     MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => HomeProvider()),
+        ChangeNotifierProvider(create: (_) => StatisticsProvider()),
 
       ],
       child: const MyApp(),

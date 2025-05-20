@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../../../../core/utils/space.dart';
-import '../../../onboard/widgets/devices title.dart';
-import '../../../onboard/widgets/header home.dart';
+import 'devices title.dart';
+import 'header home.dart';
 import '../../logic/home_provider.dart';
 import '../widgets/energy_usage_circle.dart';
 import '../widgets/device_card.dart';
