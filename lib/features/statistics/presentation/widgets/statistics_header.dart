@@ -14,6 +14,10 @@ class StatisticsHeader extends StatelessWidget {
     return  Row(
       children: [
         GestureDetector(
+          onTap: (){
+            Navigator.pop(context);
+
+          },
           child: Container(
             width: size.width * 0.075,
             height: size.width * 0.075,

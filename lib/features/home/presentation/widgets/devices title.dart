@@ -24,7 +24,7 @@ class DevicesTitel extends StatelessWidget {
         Spacer(),
         GestureDetector(
           onTap: (){
-            Navigator.pushReplacement(
+            Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => const StatisticsPage()),
             );
