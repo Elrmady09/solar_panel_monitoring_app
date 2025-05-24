@@ -8,6 +8,6 @@ class AppColors {
   static const Color yellow = Color(0xFFFFD602);
   static const Color yellow2 = Color(0xFFFFB00F);
   static const Color yellow3 = Color(0xFFF6CE66);
-
   static const Color background = Color(0xFF121212);
+  static const Color backgroundpowerchart = Color(0xFFF8F9E0);
 }
