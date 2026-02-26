@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import '../../logic/home_provider.dart';
 import '../widgets/home content.dart';
 
+// add button
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
